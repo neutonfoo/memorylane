@@ -35,12 +35,16 @@ html, body {
   margin-right: 20px;
 }
 
+.huntLocationsTable {
+  font-family: 'Special Elite', cursive;
+}
+
 .huntLocationsTable tr th:nth-child(1),
 .huntLocationsTable tr td:nth-child(1) {
   width:10%
 }
 
-.huntLocationsTable tr th:nth-child(2),
+/* .huntLocationsTable tr th:nth-child(2),
 .huntLocationsTable tr td:nth-child(2) {
   width:20%
 }
@@ -53,7 +57,7 @@ html, body {
 .huntLocationsTable tr th:nth-child(4),
 .huntLocationsTable tr td:nth-child(4) {
   width:50%
-}
+} */
 
 #huntLocationsHeadingsTable {
   margin:0;
