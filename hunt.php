@@ -20,10 +20,10 @@
   $huntLocations;
   $huntClues;
 
-  $servername = "127.0.0.1";
-  $dbname = "memoryLane";
-  $username = "root";
-  $password = "root";
+  $servername = "localhost";
+  $dbname = "salhacks_main";
+  $username = "salhacks_main";
+  $password = "eTZJ]5#riQ.P5kHH";
 
   try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname;port=3306", $username, $password);
