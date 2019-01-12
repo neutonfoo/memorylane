@@ -122,12 +122,13 @@
 
           var distance = getDistanceFromLatLonInM(userLatitude, userLongitude, locLatitude, locLongitude)
 
-          var $locInfo = $('#loc' + locIndex + 'Info').html('Distance = ' + distance.toFixed(0) + ' meters away')
+          var $locInfo = $('#loc' + locIndex + 'Info').append('Distance = ' + distance.toFixed(0) + ' meters away');
 
           // Within 50m
-          if(distance <= 500) {
+          if(distance <= 50) {
             var nextLocRowIndex = locIndex + 1
             var $nextLocRow = $('#loc' + nextLocRowIndex + 'Row')
+            $locInfo = $('#loc' + locIndex + 'Info').html('Distance = ' + distance.toFixed(0) + ' meters away')
 
             $nextLocRow.show()
 
