@@ -6,101 +6,18 @@
     <meta charset="utf-8">
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Kodchasan|Permanent+Marker|Shadows+Into+Light|Special+Elite" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style_create.css"/>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <style media="screen">
-
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-      width: 100%;
-    }
-
-    #mapContainer {
-      /* position: relative; */
-    }
-
-    #map {
-      position: absolute;
-
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-
-    #editorContainer {
-      height: 100%;
-    }
-
-    #editorTop {
-      background-color: #FFF;
-    }
-
-    #editorBottom {
-      overflow-y: auto
-    }
-
-    .huntLocationsTable tr th:nth-child(1),
-    .huntLocationsTable tr td:nth-child(1) {
-      width:10%
-    }
-
-    .huntLocationsTable tr th:nth-child(2),
-    .huntLocationsTable tr td:nth-child(2) {
-      width:20%
-    }
-
-    .huntLocationsTable tr th:nth-child(3),
-    .huntLocationsTable tr td:nth-child(3) {
-      width:20%
-    }
-
-    .huntLocationsTable tr th:nth-child(4),
-    .huntLocationsTable tr td:nth-child(4) {
-      width:50%
-    }
-
-    #huntLocationsHeadingsTable {
-      margin:0;
-    }
-
-    #huntLocationsValuesContainer {
-    }
-
-    #huntLocationsValues {
-      overflow: scroll;
-    }
-
-    #huntLocationsValues tr:first-child th,
-    #huntLocationsValues tr:first-child td {
-      border-top:0;
-    }
-
-    td.addHuntLocationRow {
-      text-align: center;
-    }
-
-    /* .no-gutters {
-      margin-right: 0;
-      margin-left: 0;
-
-      > .col,
-      > [class*="col-"] {
-        padding-right: 0;
-        padding-left: 0;
-      }
-    } */
-
-    </style>
   </head>
   <body>
-
+    <div id="header">
+      <div id="titleSmall">
+        <a href="index.php">Memory Lane</a>
+      </div>
+    </div>
     <div class="row no-gutters h-100">
       <div id="mapContainer" class="col-6">
         <div id = "map" class=""></div>
@@ -108,16 +25,23 @@
       <div class="col-6">
         <div class="d-flex flex-column h-100">
           <div class="bd-highlight">
-            <h1>Creator</h1>
+            <h1>Create a hunt</h1>
+            <div class="instructions">
+              Click on the map to lay down the location of each clue.  <br/>
+              First enter the start location and its corresponding clue. <br/>
+              Finish by clicking the Finalize button to create your hunt.
+            </div>
             <form id="huntForm" action="createSubmit.php" method="post">
               <div class="form-group row no-gutters">
                 <div class="col-10">
-                  <input name="huntTitle" class="form-control" type="text" placeholder="Scavenger Hunt Title ">
+                  <input name="huntTitle" class="form-control" type="text" placeholder="Scavenger Hunt Title" required>
+                  <!-- first clue -->
                   <input id="huntLocations" name="huntLocations" type="hidden" value="">
                   <input id="huntClues" name="huntClues" type="hidden" value="">
+                  <!-- final destination here? -->
                 </div>
                 <div class="col-2">
-                    <input id="finalizeButton" class="btn btn-primary" type="button" value="Finalize">
+                    <input id="finalizeButton" class="btn btn-celadon" type="button" value="Finalize">
                 </div>
               </div>
             </form>
@@ -132,7 +56,7 @@
               </thead>
             </table>
           </div>
-          <div id="editorBottom" class="">
+          <div id="editorBottom">
             <table class="table huntLocationsTable">
               <tbody id="huntLocationsValues"></tbody>
             </table>

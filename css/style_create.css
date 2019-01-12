@@ -1,0 +1,87 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#mapContainer {
+  /* position: relative; */
+}
+
+#map {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.bd-highlight {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#editorContainer {
+  height: 100%;
+}
+
+#editorTop {
+  background-color: #FFF;
+}
+
+#editorBottom {
+  overflow-y: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.huntLocationsTable tr th:nth-child(1),
+.huntLocationsTable tr td:nth-child(1) {
+  width:10%
+}
+
+.huntLocationsTable tr th:nth-child(2),
+.huntLocationsTable tr td:nth-child(2) {
+  width:20%
+}
+
+.huntLocationsTable tr th:nth-child(3),
+.huntLocationsTable tr td:nth-child(3) {
+  width:20%
+}
+
+.huntLocationsTable tr th:nth-child(4),
+.huntLocationsTable tr td:nth-child(4) {
+  width:50%
+}
+
+#huntLocationsHeadingsTable {
+  margin:0;
+}
+
+#huntLocationsValuesContainer {
+}
+
+#huntLocationsValues {
+  overflow: scroll;
+}
+
+#huntLocationsValues tr:first-child th,
+#huntLocationsValues tr:first-child td {
+  border-top:0;
+}
+
+td.addHuntLocationRow {
+  text-align: center;
+}
+
+/* .no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+} */

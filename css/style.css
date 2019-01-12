@@ -1,11 +1,84 @@
+/* font-family: 'Shadows Into Light', cursive;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Special Elite', cursive;
+font-family: 'Kodchasan', sans-serif;*/
+
 * {
   margin: 0;
   padding: 0;
 }
 
-#mainContainer {
-  width: 500px;
-  margin: 0 auto 0 auto;
+:root {
+  --main-purple: #42253B;
+  --second-green: #82D173;
+  --third-grey: #95A3B3;
+  --green: #ABFAA9;
+  --purple: #4C2C69;
+}
 
-  border: 1px solid #000;
+body {
+  background-color: var(--main-purple);
+  color: white;
+  font-family: 'Kodchasan', sans-serif;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--green);
+}
+
+.mainContainer {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header{
+    text-align: center;
+    margin: 20px;
+}
+
+#title {
+  font-size: 60px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+#titleSmall {
+  font-size: 40px;
+  text-align: left;
+  font-family: 'Permanent Marker', cursive;
+}
+
+#titleDescription {
+  font-size: 25px;
+}
+
+#options {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.instructions {
+  font-size: 20px;
+  margin: 5px 0 5px 0;
+}
+
+.startBtn {
+  font-size: 30px;
+  margin: 20px;
+}
+
+.btn-celadon {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.btn-celadon:hover {
+  background-color: var(--second-green);
+  color: white;
 }

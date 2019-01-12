@@ -101,7 +101,7 @@
 
           var distance = getDistanceFromLatLonInM(userLatitude, userLongitude, locLatitude, locLongitude)
 
-          var $locInfo = $('#loc' + locIndex + 'Info').html('Distance = ' + distance.toFixed(3) + 'm')
+          var $locInfo = $('#loc' + locIndex + 'Info').html('Distance = ' + distance.toFixed(3) + ' meters away')
 
           // Within 50m
           if(distance <= 50) {
