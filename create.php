@@ -49,8 +49,6 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Latitude</th>
-                  <th scope="col">Longitude</th>
                   <th scope="col">Clue</th>
                 </tr>
               </thead>
@@ -125,8 +123,6 @@
         var row = `
         <tr id="huntLoc${ locId }" date-locid="${ locId }">
           <th scope="row">${ locId }</th>
-          <td class="lat">${ position.lat.toFixed(decimalCount) }</td>
-          <td class="lng">${ position.lng.toFixed(decimalCount) }</td>
           <td>
             <textarea class="form-control huntClue" rows="3"></textarea>
           </td>

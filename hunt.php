@@ -9,14 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Kodchasan|Permanent+Marker|Shadows+Into+Light|Special+Elite" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style_hunt.css"/>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <style media="screen">
-
-      #huntTable tbody tr:not(:first-child) {
-        display:none;
-      }
-
-    </style>
   </head>
   <body>
 <?php
@@ -64,21 +58,32 @@
       <table id="huntTable" class="table">
         <thead>
           <tr>
-            <th width="20%">#</th>
+            <th width="10%">#</th>
             <th width="40%">Clue</th>
             <th width="40%">Check Location</th>
+            <th width="10%">Solved</th>
           </tr>
         </thead>
         <tbody>
           <?php
+
+          $lastIndex = 0;
+
             foreach($huntLocations as $huntLocationIndex => $huntLocation) {
+              $lastIndex = $huntLocationIndex;
               ?>
               <tr id="loc<?=$huntLocationIndex; ?>Row">
                 <td><?=$huntLocationIndex; ?></td>
                 <td class="clue"><?=$huntClues[$huntLocationIndex]; ?></td>
+                <td id="loc<?=$huntLocationIndex; ?>Info">
+                  <button type="button" class="btn btn-celadon checkLocation hereBtn" data-locindex="<?=$huntLocationIndex; ?>" data-lat="<?=$huntLocation->lat; ?>" data-lng="<?=$huntLocation->lng; ?>">I'm here!</button>
+                </td>
                 <td>
-                  <button type="button" class="btn btn-celadon checkLocation" data-locindex="<?=$huntLocationIndex; ?>" data-lat="<?=$huntLocation->lat; ?>" data-lng="<?=$huntLocation->lng; ?>">I'm here!</button>
-                  <span id="loc<?=$huntLocationIndex; ?>Info"></span>
+                  <?php
+                      // if(solved) {
+                      //   <img src="checkmark.png" alt="Checked!">
+                      // }
+                   ?>
                 </td>
               </tr>
               <?php
@@ -90,6 +95,8 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
+        var lastIndex = <?=$lastIndex; ?>
+
         var userLatitude = 0;
         var userLongitude = 0;
 
@@ -105,6 +112,8 @@
           } else {
             console.log('Geolocation is not supported by this browser.');
           }
+
+
         }
 
         function showPosition(position) {
@@ -135,6 +144,8 @@
           locLongitude = $(this).data('lng')
 
           getLocation()
+
+
         })
 
         function getDistanceFromLatLonInM(lat1,lon1,lat2,lon2) {

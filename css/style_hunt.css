@@ -1,0 +1,6 @@
+#huntTable tbody tr:not(:first-child) {
+  display:none;
+}
+
+.hereBtn {
+}
