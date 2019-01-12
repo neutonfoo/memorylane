@@ -25,32 +25,33 @@
         <thead>
           <tr>
             <th>Hunt Title</th>
-            <th>First Hunt Clue</th>
+            <th>First Clue</th>
           </tr>
         </thead>
         <tbody>
   <?php
-    $servername = "localhost";
-    $dbname = "fun";
+    $servername = "127.0.0.1";
+    $dbname = "memoryLane";
     $username = "root";
-    $password = "alpine";
+    $password = "root";
 
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname;port=3306", $username, $password);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $conn->prepare("SELECT huntId, huntTitle, huntClues FROM mlane_hunts ORDER BY ");
+        $stmt = $conn->prepare("SELECT huntId, huntTitle, huntClues FROM mlane_hunts");
         $stmt->execute();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
           ?>
           <tr>
             <td>
-              <a href="hunt.php?huntId=<?=$row['huntId']; ?>">
-                <?=$row['huntTitle']; ?>
+              <a class="btn btn-celadon" href="hunt.php?huntId=<?=$row['huntId']; ?>">
+                Begin
               </a>
+              <span style="padding-left: 20px;"><?=$row['huntTitle']; ?></span>
             </td>
-            <td><?=json_decode($row['huntClues'])[0]; ?></td>
+            <td class="clue"><?=json_decode($row['huntClues'])[0]; ?></td>
           </tr>
           <?php
         }

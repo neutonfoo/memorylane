@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Kodchasan|Permanent+Marker|Shadows+Into+Light|Special+Elite" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -25,13 +26,13 @@
   $huntLocations;
   $huntClues;
 
-  $servername = "localhost";
-  $dbname = "fun";
+  $servername = "127.0.0.1";
+  $dbname = "memoryLane";
   $username = "root";
-  $password = "alpine";
+  $password = "root";
 
   try {
-      $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname;port=3306", $username, $password);
       // set the PDO error mode to exception
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -50,32 +51,43 @@
 
   $conn = null;
 ?>
-    <h1><?=$huntTitle; ?></h1>
-    <table id="huntTable" class="table">
-      <thead>
-        <tr>
-          <th width="20%">#</th>
-          <th width="40%">Clue</th>
-          <th width="40%">Check Location</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-          foreach($huntLocations as $huntLocationIndex => $huntLocation) {
-            ?>
-            <tr id="loc<?=$huntLocationIndex; ?>Row">
-              <td><?=$huntLocationIndex; ?></td>
-              <td><?=$huntClues[$huntLocationIndex]; ?></td>
-              <td>
-                <button type="button" class="btn btn-info checkLocation" data-locindex="<?=$huntLocationIndex; ?>" data-lat="<?=$huntLocation->lat; ?>" data-lng="<?=$huntLocation->lng; ?>">I'm here!</button>
-                <span id="loc<?=$huntLocationIndex; ?>Info"></span>
-              </td>
-            </tr>
-            <?php
-          }
-        ?>
-      </tbody>
-    </table>
+    <div id="header">
+      <div id="titleSmall">
+        <a href="index.php">Memory Lane</a>
+      </div>
+    </div>
+    <div class="mainContainer">
+      <h1><?=$huntTitle; ?></h1>
+      <div class="instructions">
+        Go to the place where the clue indicates to get your next clue.
+      </div>
+      <table id="huntTable" class="table">
+        <thead>
+          <tr>
+            <th width="20%">#</th>
+            <th width="40%">Clue</th>
+            <th width="40%">Check Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+            foreach($huntLocations as $huntLocationIndex => $huntLocation) {
+              ?>
+              <tr id="loc<?=$huntLocationIndex; ?>Row">
+                <td><?=$huntLocationIndex; ?></td>
+                <td class="clue"><?=$huntClues[$huntLocationIndex]; ?></td>
+                <td>
+                  <button type="button" class="btn btn-celadon checkLocation" data-locindex="<?=$huntLocationIndex; ?>" data-lat="<?=$huntLocation->lat; ?>" data-lng="<?=$huntLocation->lng; ?>">I'm here!</button>
+                  <span id="loc<?=$huntLocationIndex; ?>Info"></span>
+                </td>
+              </tr>
+              <?php
+            }
+          ?>
+        </tbody>
+      </table>
+    </div>
+
     <script type="text/javascript">
       $(document).ready(function() {
         var userLatitude = 0;
@@ -101,10 +113,10 @@
 
           var distance = getDistanceFromLatLonInM(userLatitude, userLongitude, locLatitude, locLongitude)
 
-          var $locInfo = $('#loc' + locIndex + 'Info').html('Distance = ' + distance.toFixed(3) + ' meters away')
+          var $locInfo = $('#loc' + locIndex + 'Info').html('Distance = ' + distance.toFixed(0) + ' meters away')
 
           // Within 50m
-          if(distance <= 50) {
+          if(distance <= 500) {
             var nextLocRowIndex = locIndex + 1
             var $nextLocRow = $('#loc' + nextLocRowIndex + 'Row')
 

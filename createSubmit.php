@@ -4,15 +4,15 @@ $huntTitle = $_POST['huntTitle'];
 $huntLocations = $_POST['huntLocations'];
 $huntClues = $_POST['huntClues'];
 
-print_r($huntClues);
+// print_r($huntClues);
 //
-$servername = "localhost";
-$dbname = "fun";
+$servername = "127.0.0.1";
+$dbname = "memoryLane";
 $username = "root";
-$password = "alpine";
+$password = "root";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname;port=3306", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

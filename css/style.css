@@ -31,6 +31,28 @@ a:hover {
   color: var(--green);
 }
 
+th {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+tr {
+  border-radius: 50px;
+}
+
+tr:hover {
+  background-color: var(--purple);
+}
+
+td {
+  font-family: 'Special Elite', cursive;
+}
+
+.clue {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 20px;
+}
+
 .mainContainer {
   width: 80%;
   margin-left: auto;
@@ -65,7 +87,7 @@ a:hover {
 
 .instructions {
   font-size: 20px;
-  margin: 5px 0 5px 0;
+  margin: 5px 0 10px; 0;
 }
 
 .startBtn {
