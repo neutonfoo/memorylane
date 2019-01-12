@@ -6,12 +6,8 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
-<<<<<<< HEAD
-    <title>Memory Lane | Home</title>
-=======
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <title></title>
->>>>>>> 45465c4819564af1532416b7722e715b4434e5f1
+    <title>Memory Lane | Home</title>
   </head>
   <body>
     <div id="mainContainer">
