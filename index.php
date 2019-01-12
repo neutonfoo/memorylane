@@ -16,8 +16,10 @@
       <!-- choose if create or follow a hunt -->
       <div id="options">
         Choose your adventure
-        <button class="" type="button" name="button">Create a Hunt</button>
-        <button class="" type="button" name="button">Follow a Hunt</button>
+        <div>
+          <a class="btn btn-outline-primary" href="create.php">Create a Hunt</a>
+          <a class="btn btn-outline-primary" href="hunts.php">Follow a Hunt</a>
+        </div>
       </div>
     </div>
     <script type="text/javascript">
