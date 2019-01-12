@@ -6,6 +6,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <title></title>
   </head>
   <body>
@@ -19,9 +20,7 @@
         <button class="" type="button" name="button">Follow a Hunt</button>
       </div>
     </div>
-
     <script type="text/javascript">
-
     </script>
   </body>
 </html>
