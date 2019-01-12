@@ -21,7 +21,6 @@
       <div class="instructions">
         Select the hunt you want to do.
       </div>
-      <!-- sth to find hunts near you, maybe rank from how close they are from start distance -->
       <table class="table">
         <thead>
           <tr>
