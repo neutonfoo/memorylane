@@ -6,7 +6,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
-    <title></title>
+    <title>Memory Lane | Home</title>
   </head>
   <body>
     <div id="mainContainer">
