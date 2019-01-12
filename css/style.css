@@ -3,9 +3,34 @@
   padding: 0;
 }
 
-#mainContainer {
-  width: 500px;
-  margin: 0 auto 0 auto;
+:root {
+  --main-purple: #42253B;
+  --second-green: #82D173;
+  --third-grey: #95A3B3;
+  --green: #ABFAA9;
+  --purple: #4C2C69;
+}
 
-  border: 1px solid #000;
+body {
+  background-color: var(--main-purple);
+  color: white;
+}
+
+#mainContainer {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header{
+    text-align: center;
+    margin: 20px;
+}
+
+#title {
+  font-size: 40px;
+}
+
+#titleDescription {
+  font-size: 25px;
 }

@@ -11,13 +11,21 @@
   </head>
   <body>
     <div id="mainContainer">
-      <div id="title">Memory Lane</div>
+      <div id="header">
+        <div id="title">
+          Memory Lane
+        </div>
+        <div id="titleDescription">
+          A place to create and follow scavenger hunts near you.<br/>
+          Experience the world in a whole new way.
+        </div>
+      </div>
 
       <!-- choose if create or follow a hunt -->
       <div id="options">
-        Choose your adventure
-        <button class="" type="button" name="button">Create a Hunt</button>
-        <button class="" type="button" name="button">Follow a Hunt</button>
+        Choose your adventure...
+        <a class="btn">Create a Hunt</a>
+        <a class="btn">Follow a Hunt</a>
       </div>
     </div>
     <script type="text/javascript">
