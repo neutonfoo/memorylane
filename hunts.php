@@ -24,7 +24,8 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Hunt Title</th>
+            <th></th>
+            <th>Hunts</th>
             <th>First Clue</th>
           </tr>
         </thead>
@@ -46,7 +47,9 @@
               <a class="btn btn-celadon" href="hunt.php?huntId=<?=$row['huntId']; ?>">
                 Begin
               </a>
-              <span style="padding-left: 20px;"><?=$row['huntTitle']; ?></span>
+            </td>
+            <td>
+              <span><?=$row['huntTitle']; ?></span>
             </td>
             <td class="clue"><?=json_decode($row['huntClues'])[0]; ?></td>
           </tr>

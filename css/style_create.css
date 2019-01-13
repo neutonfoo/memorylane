@@ -89,3 +89,10 @@ td.addHuntLocationRow {
     padding-left: 0;
   }
 } */
+
+@media screen and (max-width: 768px) {
+  #mapContainer {
+    height: 500px;
+    margin-bottom: 20px;
+  }
+}

@@ -19,11 +19,11 @@
       </div>
     </div>
     <div class="row no-gutters h-100">
-      <div id="mapContainer" class="col-6">
-        <div id = "map" class=""></div>
+      <div id="mapContainer" class="col-md-6 col-sm-12">
+        <div id="map" class=""></div>
         <input id="pac-input" class="controls form-control" type="text" style="position: absolute;" placeholder="Search Box">
       </div>
-      <div class="col-6">
+      <div id="createPanel" class="col-md-6 col-sm-12">
         <div class="d-flex flex-column h-100">
           <div class="bd-highlight">
             <h1>Create a hunt</h1>
@@ -35,7 +35,7 @@
             <form id="huntForm" action="createSubmit.php" method="post">
               <div class="form-group row no-gutters">
                 <div class="col-10">
-                  <input name="huntTitle" class="form-control" type="text" placeholder="Scavenger Hunt Title" required>
+                  <input id="huntTitle" name="huntTitle" class="form-control" type="text" placeholder="Scavenger Hunt Title" required>
                   <!-- first clue -->
                   <input id="huntLocations" name="huntLocations" type="hidden" value="">
                   <input id="huntClues" name="huntClues" type="hidden" value="">
@@ -240,7 +240,13 @@
         })
 
         $huntClues.val(JSON.stringify(huntClues))
-        $huntForm.submit()
+
+        if($("#huntTitle").val().trim() == "") {
+          alert("Please enter a title for the hunt.")
+        }
+        else {
+          $huntForm.submit()
+        }
       })
     })
     </script>

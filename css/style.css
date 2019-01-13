@@ -46,6 +46,7 @@ tr:hover {
 
 td {
   font-family: 'Special Elite', cursive;
+  font-size: 20px;
 }
 
 .clue {
@@ -87,7 +88,7 @@ td {
 
 .instructions {
   font-size: 20px;
-  margin: 5px 0 10px; 0;
+  margin: 5px 0 10px 0;
 }
 
 .startBtn {
@@ -103,4 +104,20 @@ td {
 .btn-celadon:hover {
   background-color: var(--second-green);
   color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .mainContainer {
+    width: 95%;
+  }
+
+  #titleSmall {
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+  }
+
+  th {
+    font-size: 20px;
+  }
 }

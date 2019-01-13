@@ -55,10 +55,9 @@
       <table id="huntTable" class="table">
         <thead>
           <tr>
-            <th width="10%">#</th>
             <th width="40%">Clue</th>
             <th width="40%">Check Location</th>
-            <th width="10%">Solved</th>
+            <th width="20%">Solved</th>
           </tr>
         </thead>
         <tbody>
@@ -70,11 +69,10 @@
               $lastIndex = $huntLocationIndex;
               ?>
               <tr id="loc<?=$huntLocationIndex; ?>Row">
-                <td><?=$huntLocationIndex; ?></td>
                 <td class="clue"><?=$huntClues[$huntLocationIndex]; ?></td>
                 <td>
                   <button type="button" id="loc<?=$huntLocationIndex; ?>InfoBtn" class="btn btn-celadon checkLocation hereBtn" data-locindex="<?=$huntLocationIndex; ?>" data-lat="<?=$huntLocation->lat; ?>" data-lng="<?=$huntLocation->lng; ?>">I'm here!</button>
-                  <span id="loc<?=$huntLocationIndex; ?>Info" style="margin-left: 5px;"></span>
+                  <span id="loc<?=$huntLocationIndex; ?>Info"style="margin-left: 5px;"></span>
                 </td>
                 <td>
                   <img id="loc<?=$huntLocationIndex; ?>InfoImg" class="checkmark" src="checkmark.png" alt="Solved!">
