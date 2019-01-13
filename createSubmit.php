@@ -6,10 +6,7 @@ $huntClues = $_POST['huntClues'];
 
 // print_r($huntClues);
 //
-$servername = "localhost";
-$dbname = "salhacks_main";
-$username = "salhacks_main";
-$password = "eTZJ]5#riQ.P5kHH";
+require('dbconfig.php');
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname;port=3306", $username, $password);

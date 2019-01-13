@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Kodchasan|Permanent+Marker|Shadows+Into+Light|Special+Elite" rel="stylesheet">
@@ -17,8 +18,8 @@
           Memory Lane
         </div>
         <div id="titleDescription">
-          A place to create and follow scavenger hunts near you.<br/>
-          Experience the world in a whole new way.
+          Create and complete scavenger hunts near you.<br/>
+          <!-- Experience the world in a whole new way. -->
         </div>
       </div>
 

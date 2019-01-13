@@ -2,5 +2,12 @@
   display:none;
 }
 
-.hereBtn {
+#huntTable {
+
+  font-family: 'Special Elite', cursive;
+}
+
+.checkmark {
+  width: 40px;
+  margin-left: 30px;
 }

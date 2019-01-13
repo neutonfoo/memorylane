@@ -20,10 +20,7 @@
   $huntLocations;
   $huntClues;
 
-  $servername = "localhost";
-  $dbname = "salhacks_main";
-  $username = "salhacks_main";
-  $password = "eTZJ]5#riQ.P5kHH";
+  require('dbconfig.php');
 
   try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname;port=3306", $username, $password);
@@ -75,15 +72,12 @@
               <tr id="loc<?=$huntLocationIndex; ?>Row">
                 <td><?=$huntLocationIndex; ?></td>
                 <td class="clue"><?=$huntClues[$huntLocationIndex]; ?></td>
-                <td id="loc<?=$huntLocationIndex; ?>Info">
-                  <button type="button" class="btn btn-celadon checkLocation hereBtn" data-locindex="<?=$huntLocationIndex; ?>" data-lat="<?=$huntLocation->lat; ?>" data-lng="<?=$huntLocation->lng; ?>">I'm here!</button>
+                <td>
+                  <button type="button" id="loc<?=$huntLocationIndex; ?>InfoBtn" class="btn btn-celadon checkLocation hereBtn" data-locindex="<?=$huntLocationIndex; ?>" data-lat="<?=$huntLocation->lat; ?>" data-lng="<?=$huntLocation->lng; ?>">I'm here!</button>
+                  <span id="loc<?=$huntLocationIndex; ?>Info" style="margin-left: 5px;"></span>
                 </td>
                 <td>
-                  <?php
-                      // if(solved) {
-                      //   <img src="checkmark.png" alt="Checked!">
-                      // }
-                   ?>
+                  <img id="loc<?=$huntLocationIndex; ?>InfoImg" class="checkmark" src="checkmark.png" alt="Solved!">
                 </td>
               </tr>
               <?php
@@ -106,6 +100,8 @@
 
         var $checkLocation = $('.checkLocation')
 
+        $('.checkmark').hide();
+
         function getLocation() {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -120,18 +116,23 @@
           userLatitude = position.coords.latitude;
           userLongitude = position.coords.longitude;
 
-          var distance = getDistanceFromLatLonInM(userLatitude, userLongitude, locLatitude, locLongitude)
+          var distance = getDistanceFromLatLonInM(userLatitude, userLongitude, locLatitude, locLongitude);
 
-          var $locInfo = $('#loc' + locIndex + 'Info').append('Distance = ' + distance.toFixed(0) + ' meters away');
+          var $locInfo = $('#loc' + locIndex + 'Info').html(distance.toFixed(0) + ' meters away');
 
           // Within 50m
-          if(distance <= 50) {
-            var nextLocRowIndex = locIndex + 1
-            var $nextLocRow = $('#loc' + nextLocRowIndex + 'Row')
-            $locInfo = $('#loc' + locIndex + 'Info').html('Distance = ' + distance.toFixed(0) + ' meters away')
+          if(distance <= 500) {
+            var nextLocRowIndex = locIndex + 1;
+            var $nextLocRow = $('#loc' + nextLocRowIndex + 'Row');
+            $locInfo = $('#loc' + locIndex + 'Info').html(distance.toFixed(0) + ' meters away');
+            $('#loc' + locIndex + 'InfoImg').show();
 
-            $nextLocRow.show()
-
+            if(nextLocRowIndex != lastIndex + 1) {
+              $nextLocRow.show();
+            }
+            else {
+              alert("Congrats!  You've reached the end of the scavenger hunt!");
+            }
           }
 
           console.log('Distance = ' + distance + 'm')
@@ -145,8 +146,6 @@
           locLongitude = $(this).data('lng')
 
           getLocation()
-
-
         })
 
         function getDistanceFromLatLonInM(lat1,lon1,lat2,lon2) {
